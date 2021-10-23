@@ -4,13 +4,15 @@ from Equality import Equality
 import numpy as np
 import matplotlib.pyplot as plt
 
+from TowerBuilder import TowerBuilder
+
 pcf = PlayConnectFour(maxTurns=200, width=10, height=10)
 
 turns = []
 
 #Play 10000 games and see who wins more
 for i in range(10000):
-    p1 = Equality()
+    p1 = TowerBuilder()
     p2 = PlayerController()
     turns.append(pcf.play(p1, p2))
 

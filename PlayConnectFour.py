@@ -3,6 +3,8 @@ from GameState import GameState
 from GameLogic import GameLogic
 from PlayerController import PlayerController
 
+import numpy as np
+
 class PlayConnectFour:
     def __init__(self, maxTurns=20, width=7, height=6, rowsToWin=4):
         self.maxTurns = maxTurns
@@ -22,9 +24,13 @@ class PlayConnectFour:
 
         players = [player1, player2]
 
-        print("Starting game")
-
         for i in range(self.maxTurns):
+            #Let player 2 start in 50% of games
+            if(i == 0):
+                if(np.random.randint(0,2) == 0):
+                    i += 1
+                print("Starting player is player ", i+1)
+            
             #Select the player currently placing tokens
             playerNum = i%2
 
@@ -37,6 +43,7 @@ class PlayConnectFour:
                 #If the player did not chose a valid coloumn, ask the player to place their token somewhere else
                 if not (gl.placeToken(players[playerNum].makeTurn(gl.GameState, True),(playerNum+1))):
                     #If the player chose an illegal coloumn again, award the other player the win
+                    print("Player ", i+1, " has made an illegal move again after being warned. The player was punished with a loss.")
                     playerNum = (i+1)%2
                     return (playerNum+1)
             

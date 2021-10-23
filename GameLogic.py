@@ -20,7 +20,7 @@ class GameLogic:
         for i in range(self.GameState.height):
             if(coloumnToPlace[i] == 0):
                 coloumnToPlace[i] = playerColor
-                print("Player ", playerColor, " placed a token in coloumn ", coloumn)
+                #print("Player ", playerColor, " placed a token in coloumn ", coloumn)
                 return True
         
         #if no free space was found, complain and return false
