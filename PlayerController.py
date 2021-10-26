@@ -5,7 +5,8 @@ import numpy as np
 
 class PlayerController:
     #Initialise the Player Controller
-    def __init__(self) -> None:
+    def __init__(self, color) -> None:
+        self.color = color
         pass
 
     #Chose wich coloumn (0 <= x < width) to place the token in. If the last chosen coloumn was illegal, the "lastMoveIllegal" variable will be set to true

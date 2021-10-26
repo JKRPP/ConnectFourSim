@@ -46,9 +46,13 @@ class PlayConnectFour:
                 return 3
             
             #Make the active player make their choice and place their token
-            if not (gl.placeToken(players[playerNum].makeTurn(gl.GameState),(playerNum+1))):
+            tokenPos = players[playerNum].makeTurn(gl.GameState)
+
+            if not (gl.placeToken(tokenPos,(playerNum+1))):
                 #If the player did not chose a valid coloumn, ask the player to place their token somewhere else
-                if not (gl.placeToken(players[playerNum].makeTurn(gl.GameState, True),(playerNum+1))):
+                tokenPos = players[playerNum].makeTurn(gl.GameState, True)
+
+                if not (gl.placeToken(tokenPos,(playerNum+1))):
                     #If the player chose an illegal coloumn again, award the other player the win
                     print("Player ", i+1, " has made an illegal move again after being warned. The player was punished with a loss.")
                     playerNum = (i+1)%2

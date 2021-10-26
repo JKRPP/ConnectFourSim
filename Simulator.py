@@ -14,8 +14,8 @@ visualise = True
 
 #Play 10000 games and see who wins more
 for i in range(1):
-    p1 = PlayerController()
-    p2 = PlayerController()
+    p1 = PlayerController(1)
+    p2 = PlayerController(2)
     turns.append(pcf.play(p1, p2, visualise))
 
 turns_plot = np.array(turns,dtype='int')

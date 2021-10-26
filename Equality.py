@@ -5,9 +5,10 @@ from PlayerController import PlayerController
 
 class Equality(PlayerController):
 
-    def __init__(self) -> None:
+    def __init__(self, color) -> None:
         self.myGameState: GameState
         self.currColoumn = 0
+        self.color = color
 
     def makeTurn(self, gs: GameState, lastMoveIllegal = False) -> int:
         coloumnToPlace = self.currColoumn

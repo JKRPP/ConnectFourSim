@@ -5,8 +5,9 @@ from PlayerController import PlayerController
 
 class TowerBuilder(PlayerController):
 
-    def __init__(self) -> None:
+    def __init__(self, color) -> None:
         self.currColoumn = 0
+        self.color = color
 
     def makeTurn(self, gs: GameState, lastMoveIllegal=False) -> int:
         if(gs.board[self.currColoumn][gs.height-1] == 0):
