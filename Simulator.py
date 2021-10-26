@@ -10,11 +10,13 @@ pcf = PlayConnectFour(maxTurns=200, width=10, height=10)
 
 turns = []
 
+visualise = True
+
 #Play 10000 games and see who wins more
-for i in range(10000):
-    p1 = TowerBuilder()
+for i in range(1):
+    p1 = PlayerController()
     p2 = PlayerController()
-    turns.append(pcf.play(p1, p2))
+    turns.append(pcf.play(p1, p2, visualise))
 
 turns_plot = np.array(turns,dtype='int')
 x ,y = np.unique(turns_plot, return_counts=True)
@@ -25,4 +27,4 @@ print(y[0]/sum(y))
 
 #Show a plot of the wins
 plt.bar(x,y)
-plt.show()
+#plt.show()
