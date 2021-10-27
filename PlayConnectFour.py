@@ -20,7 +20,8 @@ class PlayConnectFour:
 
         gs = GameState(self.height,self.width,self.rowsToWin)
         gl = GameLogic(gs)
-        gsv = GameStateVisualiser(gs)
+        if(visualise):
+            gsv = GameStateVisualiser(gs)
 
         clock = pygame.time.Clock()
 
@@ -35,8 +36,10 @@ class PlayConnectFour:
             #Let player 2 start in 50% of games
             if(i == 0):
                 if(np.random.randint(0,2) == 0):
-                    i += 1
-                print("Starting player is player ", i+1)
+                    self.maxTurns += 1
+                    print("Starting player is player ", 2)
+                    continue
+                print("Starting player is player ", 1)
             
             #Select the player currently placing tokens
             playerNum = i%2
